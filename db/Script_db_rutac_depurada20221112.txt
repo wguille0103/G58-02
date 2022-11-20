@@ -1,0 +1,116 @@
+create database rutac2;
+use rutac2;
+CREATE TABLE departamento(
+  codigo_dep INT(11) primary key,
+  nombre_dep VARCHAR(45) NOT NULL
+);
+CREATE TABLE municipio (
+  codigo_mun INT(11) primary key,
+  nombre_mun VARCHAR(45) NOT NULL,
+  codigo_dep INT(11),
+  constraint fk_codigo_dep foreign key(codigo_dep) references departamento(codigo_dep)
+);
+CREATE TABLE tipo_preferencia(
+  ide_tipo_ref int primary key,
+  nombre_tipo_ref VARCHAR(45) NOT NULL,
+  descripcion_tipo_ref VARCHAR(120) NOT NULL
+);
+CREATE TABLE rol (
+  ide_rol INT(11) primary key,
+  nombre_rol VARCHAR(45) NOT NULL
+);
+CREATE TABLE usuario (
+  documento_usu VARCHAR(45) primary key,
+  login_usu VARCHAR(45) NOT NULL,
+  email_usu VARCHAR(45) NOT NULL,
+  tipo_identificacion_usu VARCHAR(45) NOT NULL,
+  nombre_usu VARCHAR(45) NOT NULL,
+  apellido_usu VARCHAR(45) NOT NULL,
+  celular_usu VARCHAR(45) NOT NULL,
+  codigo_mun INT(11),
+  genero_usu VARCHAR(45) NOT NULL,
+  foto_usu VARCHAR(100) NOT NULL,
+  estado_usu int,
+  clave_usu VARCHAR(50) NOT NULL,
+  constraint fk_codigo_mun foreign key(codigo_mun) references municipio(codigo_mun)
+);
+
+CREATE TABLE rol_usuario (
+  ide_rol_usu INT(11) primary key,
+  ide_rol INT(11),
+  documento_usu VARCHAR(45),
+  constraint fk_ide_rol foreign key(ide_rol) references rol(ide_rol),
+  constraint fk_documento_usu foreign key(documento_usu) references usuario(documento_usu)
+);
+CREATE TABLE preferencias (
+  codigo_pre int primary key,
+  documento_usu VARCHAR(45),
+  ide_tipo_ref int ,
+  estado_pre VARCHAR(45),
+  constraint fk_ide_tipo_ref foreign key(ide_tipo_ref) references tipo_preferencia(ide_tipo_ref),
+  constraint fk_documento_usu2 foreign key(documento_usu) references usuario(documento_usu)
+);
+CREATE TABLE vehiculo (
+  codigo_veh int primary key,
+  modelo_veh VARCHAR(45) NOT NULL,
+  tipo_veh VARCHAR(45) NOT NULL,
+  color_veh VARCHAR(45) NOT NULL,
+  marca_veh VARCHAR(45) NOT NULL,
+  placa_veh VARCHAR(45) NOT NULL,
+  foto_veh VARCHAR(100) NOT NULL
+);
+CREATE TABLE ruta (
+  codigo_rut int primary key,
+  nombre_conductor varchar(100),
+  codigo_veh int,
+  estado_rut int,
+  punto_partida varchar(100),
+  fecha_rut DATE,
+  punto_destino  varchar(100),
+  cupos_rut INT(11) NOT NULL,
+  indicacion_origen VARCHAR(100) NOT NULL,
+  indicacion_llegada VARCHAR(100) NOT NULL,departamento
+  valor_cupo int,
+  documento_usu VARCHAR(45),
+  constraint fk_codigo_veh foreign key(codigo_veh) references vehiculo(codigo_veh),
+  constraint fk_documento_usu3 foreign key(documento_usu) references usuario(documento_usu)
+);
+
+--Tablas faltantes
+CREATE TABLE `estado_reserva` (
+  `ide_est_res` int NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`ide_est_res`)
+);
+
+CREATE TABLE reserva (
+  `ide_reserva` int NOT NULL AUTO_INCREMENT,
+  `ide_est_res` int NOT NULL,
+  `codigo_rut` int NOT NULL,
+  `calificacion` int DEFAULT NULL,
+  `comentarios` varchar(450) DEFAULT NULL,
+  `documento_usu_pasajero` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ide_reserva`),
+  KEY `fk_reserva_estado` (`ide_est_res`),
+  KEY `fk_reserva_ruta` (`codigo_rut`),
+  KEY `fk_reserva_usuario` (`documento_usu_pasajero`),
+  CONSTRAINT `fk_reserva_estado` FOREIGN KEY (`ide_est_res`) REFERENCES `estado_reserva` (`ide_est_res`),
+  CONSTRAINT `fk_reserva_ruta` FOREIGN KEY (`codigo_rut`) REFERENCES `ruta` (`codigo_rut`),
+  CONSTRAINT `fk_reserva_usuario` FOREIGN KEY (`documento_usu_pasajero`) REFERENCES `usuario` (`documento_usu`)
+) ;
+
+INSERT INTO `tipo_preferencia` VALUES (1,'Admite mscotas','EL conductor permite vijar con mascotas');
+INSERT INTO `tipo_preferencia` VALUES (2,'Cupo en maletero','El conductor tiene espacio en el baúl');
+INSERT INTO `tipo_preferencia` VALUES (3,'No se permite el consumo de alimentos','No alimentos');
+INSERT INTO `tipo_preferencia` VALUES (4,'Se admiten niños de brazos','tranporta menores');
+INSERT INTO `tipo_preferencia` VALUES (5,'Solo mujeres','El conductor admite solo mujeres');
+INSERT INTO `tipo_preferencia` VALUES (6,'Silla de ruedas','El conductor tiene cupo para transportar silla de ruedas');
+INSERT INTO `tipo_preferencia` VALUES (7,'Admito mascotas','El conductor asigna cupo para mascotas');
+INSERT INTO `tipo_preferencia` VALUES (8,'Adulto mayor','El conductor tiene cupo para transportar personas de la tercera edad');
+INSERT INTO `tipo_preferencia` VALUES (9,'Cupo con tarifa','El conductor asigna tarifa o no');
+INSERT INTO `tipo_preferencia` VALUES (10,'Manejo con musica','El conductor selecciona que llevara musica durante la ruta');
+INSERT INTO `tipo_preferencia` VALUES (11,'Abierto a conversación','El conductor selecciona si permite que le hablen durante el recorrido');
+
+INSERT INTO `rutac`.`departamento` VALUES (5,'ANTIOQUIA');
+INSERT INTO `rutac`.`departamento` VALUES (8,'ATLÁNTICO');
+INSERT INTO `rutac`.`departamento` VALUES (11,'BOGOTÁ, D.C.');
