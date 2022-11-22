@@ -23,6 +23,7 @@ public interface UsuarioDao extends CrudRepository<Usuario,Integer> {
   public List<Usuario> findByDocumentoUsu(String documento);
 
   //@Transactional(readOnly=true)
+  //Borrar por documento WP
   @Modifying
   @Query("DELETE FROM Usuario u WHERE u.documento_usu = ?1")
   public void deleteByDocumentoUsu(String documento);
