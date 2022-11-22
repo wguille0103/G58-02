@@ -1,10 +1,10 @@
-package com.backend.rutac.Service;
-import com.backend.rutac.Models.Usuario;
+package com.rutac.Service;
+import com.rutac.Models.Usuario;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.backend.rutac.Dao.UsuarioDao;
+import com.rutac.Dao.UsuarioDao;
 
 
 @Service

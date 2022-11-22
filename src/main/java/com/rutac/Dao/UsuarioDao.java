@@ -1,5 +1,5 @@
-package com.backend.rutac.Dao;
-import com.backend.rutac.Models.Usuario;
+package com.rutac.Dao;
+import com.rutac.Models.Usuario;
 
 import java.util.List;
 

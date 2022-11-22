@@ -1,7 +1,7 @@
-package com.backend.rutac.Controller;
+package com.rutac.Controller;
 
-import com.backend.rutac.Models.Departamento;
-import com.backend.rutac.Service.DepartamentoService;
+import com.rutac.Models.Departamento;
+import com.rutac.Service.DepartamentoService;
 
 import java.util.List;
 

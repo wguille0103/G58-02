@@ -1,7 +1,7 @@
-package com.backend.rutac.Service;
+package com.rutac.Service;
 
-import com.backend.rutac.Dao.RolDao;
-import com.backend.rutac.Models.Rol;
+import com.rutac.Dao.RolDao;
+import com.rutac.Models.Rol;
 
 import java.util.List;
 

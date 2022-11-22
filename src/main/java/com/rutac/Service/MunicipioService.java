@@ -1,7 +1,7 @@
-package com.backend.rutac.Service;
+package com.rutac.Service;
 
-import com.backend.rutac.Dao.MunicipioDao;
-import com.backend.rutac.Models.Municipio;
+import com.rutac.Dao.MunicipioDao;
+import com.rutac.Models.Municipio;
 
 import java.util.List;
 

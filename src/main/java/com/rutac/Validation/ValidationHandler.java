@@ -1,4 +1,4 @@
-package com.backend.rutac.Validation;
+package com.rutac.Validation;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.backend.rutac.Models.Error;
+import com.rutac.Models.Error;
 
 @ControllerAdvice
 public class ValidationHandler extends ResponseEntityExceptionHandler {

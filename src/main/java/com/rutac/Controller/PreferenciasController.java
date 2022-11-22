@@ -1,7 +1,7 @@
-package com.backend.rutac.Controller;
+package com.rutac.Controller;
 
-import com.backend.rutac.Models.Preferencias;
-import com.backend.rutac.Service.PreferenciasService;
+import com.rutac.Models.Preferencias;
+import com.rutac.Service.PreferenciasService;
 
 import java.util.List;
 

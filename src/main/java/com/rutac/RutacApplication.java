@@ -1,4 +1,4 @@
-package com.backend.rutac;
+package com.rutac;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

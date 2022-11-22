@@ -1,7 +1,7 @@
-package com.backend.rutac.Service;
+package com.rutac.Service;
 
-import com.backend.rutac.Dao.RutaDao;
-import com.backend.rutac.Models.Ruta;
+import com.rutac.Dao.RutaDao;
+import com.rutac.Models.Ruta;
 
 import java.util.List;
 

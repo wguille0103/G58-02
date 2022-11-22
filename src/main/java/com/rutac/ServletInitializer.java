@@ -1,4 +1,4 @@
-package com.backend.rutac;
+package com.rutac;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

@@ -1,7 +1,7 @@
-package com.backend.rutac.Controller;
-import com.backend.rutac.Models.Usuario;
-import com.backend.rutac.Security.Hash;
-import com.backend.rutac.Service.UsuarioService;
+package com.rutac.Controller;
+import com.rutac.Models.Usuario;
+import com.rutac.Security.Hash;
+import com.rutac.Service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

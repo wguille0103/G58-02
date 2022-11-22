@@ -1,4 +1,4 @@
-package com.backend.rutac.Security;
+package com.rutac.Security;
 public class Hash {
  
     /* Retorna un hash a partir de un tipo y un texto */

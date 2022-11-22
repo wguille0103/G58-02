@@ -1,4 +1,4 @@
-package com.backend.rutac.Models;
+package com.rutac.Models;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
-package com.backend.rutac.Service;
+package com.rutac.Service;
 
-import com.backend.rutac.Dao.TipoPreferenciaDao;
-import com.backend.rutac.Models.TipoPreferencia;
+import com.rutac.Dao.TipoPreferenciaDao;
+import com.rutac.Models.TipoPreferencia;
 
 import java.util.List;
 

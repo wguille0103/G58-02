@@ -1,7 +1,7 @@
-package com.backend.rutac.Service;
+package com.rutac.Service;
 
-import com.backend.rutac.Dao.VehiculoDao;
-import com.backend.rutac.Models.Vehiculo;
+import com.rutac.Dao.VehiculoDao;
+import com.rutac.Models.Vehiculo;
 
 import java.util.List;
 

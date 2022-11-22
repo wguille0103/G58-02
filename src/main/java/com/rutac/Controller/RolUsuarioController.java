@@ -1,7 +1,7 @@
-package com.backend.rutac.Controller;
+package com.rutac.Controller;
 
-import com.backend.rutac.Models.RolUsuario;
-import com.backend.rutac.Service.RolUsuarioService;
+import com.rutac.Models.RolUsuario;
+import com.rutac.Service.RolUsuarioService;
 
 import java.util.List;
 
