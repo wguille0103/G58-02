@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -28,7 +30,9 @@ public class Municipio implements Serializable {
     @Column(name="nombre_mun")
     private String nombre_mun;
 
-    @Column(name = "codigo_dep")
+    @ManyToOne
+    @JoinColumn(name="codigo_dep")
+    //@Column(name = "codigo_dep")
     public Departamento codigo_dep;
 
     @Override

@@ -3,6 +3,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,8 +30,9 @@ public class Usuario implements Serializable {
     private String apellido_usu;
     @Column(name="celular_usu")
     private String celular_usu;
-    @Column(name="codigo_mun")
-    private Integer codigo_mun;
+    @ManyToOne
+    @JoinColumn(name="codigo_mun")
+    private Municipio codigo_mun;   
     @Column(name="genero_usu")
     private String genero_usu;
     @Column(name="foto_usu")
