@@ -33,6 +33,11 @@ public class UsuarioService {
     }
 
     @Transactional(readOnly=true)
+    public Usuario login(String usuario, String clave) {
+        return usuarioDao.login(usuario, clave);
+    }
+
+    @Transactional(readOnly=true)
     public List<Usuario> findByDocumentoUsu(String id) {
        return  usuarioDao.findByDocumentoUsu(id); 
        // return  usuarioDao.findByDocumento_usu(id);     

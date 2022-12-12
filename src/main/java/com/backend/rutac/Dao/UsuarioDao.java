@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UsuarioDao extends CrudRepository<Usuario,Integer> {
     //Operación de Autentiiicación (SELECT)
     @Transactional(readOnly=true)//No afecta integridad base de datos
-    @Query(value="SELECT * FROM usuario WHERE documento_usu= :usuario AND clave_usu= :clave", nativeQuery=true)
+    @Query(value="SELECT * FROM usuario WHERE login_usu= :usuario AND clave_usu= :clave", nativeQuery=true)
     public Usuario login(@Param("usuario") String usuario, @Param("clave") String clave);
 
    // public Usuario findById(String string); 

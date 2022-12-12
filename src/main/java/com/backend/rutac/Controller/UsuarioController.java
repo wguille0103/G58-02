@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -45,7 +46,10 @@ public class UsuarioController {
     @ResponseBody
     public ResponseEntity<Usuario> consultarPorId(@PathVariable String id){    
       List<Usuario> obj = servicio.findByDocumentoUsu(id); 
-      return new ResponseEntity<>(obj.get(0),HttpStatus.OK);             
+      Usuario usuario = obj.get(0);
+      usuario.setClave_usu(Hash.getHash(usuario.getClave_usu(), "sha1"));
+      //return new ResponseEntity<>(obj.get(0),HttpStatus.OK);
+      return new ResponseEntity<>(usuario,HttpStatus.OK);             
     }
    
   @DeleteMapping(value = "/{id}")
@@ -85,5 +89,12 @@ public class UsuarioController {
        return new ResponseEntity<>(obj.get(0), HttpStatus.INTERNAL_SERVER_ERROR);
      }
      return new ResponseEntity<>(obj.get(0), HttpStatus.OK);
+   }
+
+   @GetMapping("/login")
+   @ResponseBody
+   public Usuario ingresar(@RequestParam ("usuario") String usuario,@RequestParam ("clave") String clave) {
+       clave=Hash.sha1(clave);
+       return servicio.login(usuario, clave); 
    }
 }
